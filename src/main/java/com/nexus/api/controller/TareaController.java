@@ -1,5 +1,6 @@
 package com.nexus.api.controller;
 
+import com.nexus.api.exception.NotFound;
 import com.nexus.api.model.Tarea;
 import com.nexus.api.repository.TareaRepository;
 import com.nexus.api.service.TareaService;
@@ -43,5 +44,10 @@ public class TareaController {
         tareaService.eliminarTarea(id);
 
         return ResponseEntity.noContent().build();
+    }
+
+    @ExceptionHandler(NotFound.class)
+    public ResponseEntity<String> handleNotFound(NotFound ex) {
+        return ResponseEntity.status(404).body(ex.getMessage());
     }
 }
