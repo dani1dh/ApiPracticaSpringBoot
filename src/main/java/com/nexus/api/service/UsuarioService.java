@@ -4,9 +4,11 @@ import com.nexus.api.exception.NotFound;
 import com.nexus.api.model.Usuario;
 import com.nexus.api.repository.IUsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class UsuarioService implements  IUsuarioService{
 
     //Hacemos la inyeccion de dependencias
